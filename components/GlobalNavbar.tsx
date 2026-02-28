@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import SidebarSlider from "@/components/SidebarSlider"
 import { GiHamburgerMenu } from "react-icons/gi"
 
@@ -9,7 +10,7 @@ export default function GlobalNavbar() {
 
   return (
     <>
-      {/* Hamburger menu icon button */}
+      {/* Hamburger button */}
       <button
         className="fixed top-4 left-4 z-50 p-2 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded"
         onClick={() => setIsSidebarOpen(true)}
@@ -17,13 +18,31 @@ export default function GlobalNavbar() {
         <GiHamburgerMenu size={24} />
       </button>
 
-      {/* SidebarSlider component */}
-      <SidebarSlider isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)}>
+      {/* Sidebar */}
+      <SidebarSlider
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      >
         <nav className="flex flex-col space-y-4">
-          <a href="/home" className="hover:underline">Home</a>
-          <a href="/about" className="hover:underline">About</a>
-          <a href="/contact" className="hover:underline">Contact</a>
-          <a href="/login" className="hover:underline">Login</a>
+          <Link href="/home" className="hover:underline">
+            Home
+          </Link>
+
+          <Link href="/projects" className="hover:underline">
+            Projects
+          </Link>
+
+          <Link href="/about" className="hover:underline">
+            About
+          </Link>
+
+          <Link href="/contact" className="hover:underline">
+            Contact
+          </Link>
+
+          <Link href="/login" className="hover:underline">
+            Login
+          </Link>
         </nav>
       </SidebarSlider>
     </>
